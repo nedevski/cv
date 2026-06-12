@@ -118,6 +118,7 @@ a:hover {
 }
 
 .cv-page--columns {
+  --sidebar-inset: 1.5rem;
   display: grid;
   grid-template-columns: 1.65fr 1fr;
   gap: var(--gap);
@@ -130,11 +131,17 @@ a:hover {
 
 .cv-column--secondary {
   --sidebar-section-gap: 2.25rem;
-  padding: 1.5rem;
+  padding: var(--sidebar-inset);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+
+@media (min-width: 721px) {
+  .cv-column--primary > .cv-section:first-child .cv-section__toggle {
+    padding-top: var(--sidebar-inset);
+  }
 }
 
 .cv-column--secondary .cv-section {
@@ -150,8 +157,16 @@ a:hover {
   padding-bottom: 0.5rem;
 }
 
-/* ── Theme toggle ──────────────────────────────────────── */
-.theme-toggle {
+/* ── Header actions ────────────────────────────────────── */
+.cv-header__actions {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.theme-toggle,
+.print-button {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -168,12 +183,14 @@ a:hover {
   transition: border-color 0.15s, background 0.15s;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.print-button:hover {
   border-color: var(--color-primary);
   background: var(--surface);
 }
 
-.theme-toggle__icon {
+.theme-toggle__icon,
+.print-button__icon {
   width: 1.15rem;
   height: 1.15rem;
 }
@@ -328,6 +345,10 @@ a:hover {
 
 .entry--compact .entry__title {
   font-size: 1.05rem;
+}
+
+.entry--education .entry__meta--period {
+  margin-top: 0.05rem;
 }
 
 /* ── Photo ─────────────────────────────────────────────── */
@@ -537,7 +558,7 @@ a:hover {
     grid-area: intro;
   }
 
-  .theme-toggle {
+  .cv-header__actions {
     grid-area: toggle;
     justify-self: end;
   }
@@ -639,7 +660,7 @@ a:hover {
     background: transparent;
   }
 
-  .theme-toggle {
+  .cv-header__actions {
     display: none;
   }
 
@@ -701,12 +722,18 @@ a:hover {
     color: #000;
   }
 
-  a {
-    color: inherit;
+  a[href] {
+    color: #000 !important;
     text-decoration: underline;
   }
 
-  .entry__title a {
+  .contact-list a[href^="http"]::after,
+  .contact-list a[href^="https"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    font-weight: normal;
+    color: #333;
     text-decoration: none;
+    word-break: break-all;
   }
 }

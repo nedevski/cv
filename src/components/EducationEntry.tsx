@@ -1,5 +1,4 @@
 import type { EducationEntry as EducationEntryType } from '../types/cv'
-import { EntryMeta } from './EntryMeta'
 
 interface EducationEntryProps {
   entry: EducationEntryType
@@ -7,9 +6,10 @@ interface EducationEntryProps {
 
 export function EducationEntry({ entry }: EducationEntryProps) {
   return (
-    <article className="entry entry--compact">
+    <article className="entry entry--compact entry--education">
       <h3 className="entry__title">{entry.degree}</h3>
-      <EntryMeta parts={[entry.institution, entry.period]} />
+      <span className="entry__meta">{entry.institution}</span>
+      <span className="entry__meta entry__meta--period">{entry.period}</span>
     </article>
   )
 }

@@ -1,6 +1,7 @@
 import type { Profile } from '../types/cv'
 import { deriveInitials } from '../utils/initials'
 import { Photo } from './Photo'
+import { PrintButton } from './PrintButton'
 import { ThemeToggle } from './ThemeToggle'
 
 interface CvHeaderProps {
@@ -21,7 +22,10 @@ export function CvHeader({ profile, onToggleTheme }: CvHeaderProps) {
           <p className="cv-header__title">{profile.title}</p>
         </div>
 
-        <ThemeToggle onToggle={onToggleTheme} />
+        <div className="cv-header__actions">
+          <ThemeToggle onToggle={onToggleTheme} />
+          <PrintButton />
+        </div>
       </div>
 
       <p className="cv-header__summary">{profile.summary}</p>
