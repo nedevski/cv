@@ -1,7 +1,7 @@
 import { resolveAssetUrl } from './utils/assetUrl'
-import type { SiteConfig } from './types/site'
+import type { GeneralConfig } from './types/cv'
 
-export function initSite(site: SiteConfig): void {
+export function initSite(site: GeneralConfig): void {
   const root = document.documentElement
   root.setAttribute('data-color-theme', site.theme)
   root.setAttribute('data-theme', site.mode)

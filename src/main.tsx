@@ -9,10 +9,10 @@ import './styles/themes/purple.css'
 import './styles/themes/red.css'
 import './styles/themes/olive.css'
 import { initSite } from './initSite'
-import { siteConfig } from './loadSite'
+import { cvData } from './loadCv'
 import App from './App.tsx'
 
-initSite(siteConfig)
+initSite(cvData.general)
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

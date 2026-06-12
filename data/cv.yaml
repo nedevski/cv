@@ -1,3 +1,10 @@
+general:
+  title: Nikola Nedevski - Resume
+  url: https://cv.nedev.ski
+  favicon: favicon.svg
+  mode: dark
+  theme: orange
+
 profile:
   name: Nikola Nedevski
   title: Senior .NET Developer

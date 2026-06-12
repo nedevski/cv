@@ -1,12 +1,9 @@
 import { Cv } from './components/Cv'
-import { loadCv } from './loadCv'
-import { siteConfig } from './loadSite'
+import { cvData } from './loadCv'
 import { useTheme } from './hooks/useTheme'
 
-const cvData = loadCv()
-
 function App() {
-  const { toggleTheme } = useTheme(siteConfig.mode)
+  const { toggleTheme } = useTheme(cvData.general.mode)
 
   return <Cv data={cvData} onToggleTheme={toggleTheme} />
 }

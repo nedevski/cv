@@ -1,3 +1,13 @@
+import type { ColorTheme, ThemeMode } from './site'
+
+export interface GeneralConfig {
+  title: string
+  favicon: string
+  theme: ColorTheme
+  mode: ThemeMode
+  url?: string
+}
+
 export interface Profile {
   name: string
   title: string
@@ -58,6 +68,7 @@ export interface LanguageEntry {
 }
 
 export interface CvData {
+  general: GeneralConfig
   profile: Profile
   contact: Contact
   experience?: ExperienceEntry[]

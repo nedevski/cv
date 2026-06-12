@@ -11,10 +11,3 @@ export type ColorTheme = (typeof COLOR_THEMES)[number]
 
 export const THEME_MODES = ['light', 'dark'] as const
 export type ThemeMode = (typeof THEME_MODES)[number]
-
-export interface SiteConfig {
-  title: string
-  favicon: string
-  theme: ColorTheme
-  mode: ThemeMode
-}
