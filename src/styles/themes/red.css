@@ -1,0 +1,36 @@
+/* Red color theme — light & dark */
+[data-color-theme="red"] {
+  color-scheme: light;
+  --color-primary: #7c2d3e;
+  --color-secondary: #8a6a6f;
+  --color-accent: #d4a0a8;
+  --bg: #faf6f7;
+  --surface: #fffcfc;
+  --text: #1f1418;
+  --text-muted: #524045;
+  --border: #ebe0e3;
+  --photo-bg: #f0dfe4;
+  --shadow: 0 2px 8px rgba(31, 20, 24, 0.06);
+}
+
+[data-color-theme="red"][data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #e8919f;
+  --color-secondary: #b08a92;
+  --color-accent: #9f1239;
+  --bg: #140f11;
+  --surface: #1e171a;
+  --text: #faf5f7;
+  --text-muted: #d4c4c8;
+  --border: #3f3236;
+  --photo-bg: #2d1f24;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  [data-color-theme="red"] {
+    --color-primary: #7c2d3e;
+    --color-secondary: #8a6a6f;
+    --color-accent: #d4a0a8;
+  }
+}

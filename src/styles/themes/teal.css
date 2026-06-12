@@ -1,0 +1,36 @@
+/* Teal color theme — light & dark */
+[data-color-theme="teal"] {
+  color-scheme: light;
+  --color-primary: #0f766e;
+  --color-secondary: #5b7c7a;
+  --color-accent: #99d5cf;
+  --bg: #f4faf9;
+  --surface: #ffffff;
+  --text: #0f2928;
+  --text-muted: #345452;
+  --border: #d5ebe8;
+  --photo-bg: #ccfbf1;
+  --shadow: 0 2px 8px rgba(15, 41, 40, 0.06);
+}
+
+[data-color-theme="teal"][data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #5eead4;
+  --color-secondary: #7fb8b2;
+  --color-accent: #14b8a6;
+  --bg: #0a1413;
+  --surface: #12201f;
+  --text: #ecfdf9;
+  --text-muted: #a8d4cc;
+  --border: #2a4a46;
+  --photo-bg: #153330;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  [data-color-theme="teal"] {
+    --color-primary: #0f766e;
+    --color-secondary: #5b7c7a;
+    --color-accent: #99d5cf;
+  }
+}

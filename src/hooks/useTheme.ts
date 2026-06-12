@@ -1,27 +1,26 @@
 import { useCallback, useEffect } from 'react'
+import type { ThemeMode } from '../types/site'
 
 const STORAGE_KEY = 'cv-theme'
 
-type Theme = 'light' | 'dark'
-
-function getPreferredTheme(): Theme {
+function getPreferredTheme(defaultMode: ThemeMode): ThemeMode {
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') {
     return stored
   }
 
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return defaultMode
 }
 
-function applyTheme(theme: Theme) {
+function applyTheme(theme: ThemeMode) {
   document.documentElement.setAttribute('data-theme', theme)
   localStorage.setItem(STORAGE_KEY, theme)
 }
 
-export function useTheme() {
+export function useTheme(defaultMode: ThemeMode) {
   useEffect(() => {
-    applyTheme(getPreferredTheme())
-  }, [])
+    applyTheme(getPreferredTheme(defaultMode))
+  }, [defaultMode])
 
   const toggleTheme = useCallback(() => {
     const current = document.documentElement.getAttribute('data-theme')

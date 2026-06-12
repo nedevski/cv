@@ -17,6 +17,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
+    env:
+      # Site root (custom domain or user/org pages). Override via repo or environment variable.
+      VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/' }}
+      PAGES_CUSTOM_DOMAIN: ${{ vars.PAGES_CUSTOM_DOMAIN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,22 +31,21 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: cv-builder/package-lock.json
 
       - name: Install dependencies
-        working-directory: cv-builder
         run: npm ci
 
       - name: Build
-        working-directory: cv-builder
-        env:
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run build
+
+      - name: Configure custom domain
+        if: env.PAGES_CUSTOM_DOMAIN != ''
+        run: echo "$PAGES_CUSTOM_DOMAIN" > dist/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: cv-builder/dist
+          path: dist
 
   deploy:
     needs: build

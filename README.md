@@ -24,17 +24,21 @@ npm run build
 npm run preview
 ```
 
-For a different GitHub Pages base path:
+To test a non-root base path locally:
 
 ```bash
-VITE_BASE_PATH=/your-repo-name/ npm run build
+VITE_BASE_PATH=/some-path/ npm run build
 ```
 
 ## Deploy
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds `cv-builder` and publishes `dist/` to GitHub Pages.
+Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds and publishes `dist/` to GitHub Pages at the site root (`/`).
 
 Repository settings required:
 
 1. **Settings → Pages → Build and deployment → Source:** GitHub Actions
-2. After the first successful deploy, the site URL is shown in the workflow run (typically `https://<user>.github.io/<repo>/`).
+2. Optional custom domain — either:
+   - **Settings → Pages → Custom domain**, or
+   - Repository or `github-pages` environment variable **`PAGES_CUSTOM_DOMAIN`** (e.g. `cv.example.com`)
+
+Optional repository or `github-pages` environment variable **`VITE_BASE_PATH`** (defaults to `/` in CI).

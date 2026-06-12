@@ -1,0 +1,36 @@
+/* Olive color theme — light & dark */
+[data-color-theme="olive"] {
+  color-scheme: light;
+  --color-primary: #6b705c;
+  --color-secondary: #7d8170;
+  --color-accent: #b7b79e;
+  --bg: #f8f7f4;
+  --surface: #fefdfb;
+  --text: #1c1b18;
+  --text-muted: #4a4840;
+  --border: #e5e3dc;
+  --photo-bg: #ece8dc;
+  --shadow: 0 2px 8px rgba(28, 27, 24, 0.06);
+}
+
+[data-color-theme="olive"][data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #c5c9a8;
+  --color-secondary: #a8ab98;
+  --color-accent: #8b8f6e;
+  --bg: #131412;
+  --surface: #1c1b19;
+  --text: #f7f6f3;
+  --text-muted: #cac8bc;
+  --border: #3a3932;
+  --photo-bg: #25241f;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  [data-color-theme="olive"] {
+    --color-primary: #6b705c;
+    --color-secondary: #7d8170;
+    --color-accent: #b7b79e;
+  }
+}

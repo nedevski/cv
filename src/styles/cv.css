@@ -1,35 +1,10 @@
-/* ── Theme ─────────────────────────────────────────────── */
+/* ── Layout tokens (colors live in styles/themes/*.css) ── */
 :root {
-  color-scheme: light;
-  --color-primary: #b8653a;
-  --color-secondary: #8f6f56;
-  --color-accent: #c9a88a;
-  --bg: #faf6f2;
-  --surface: #fffcf9;
-  --text: #292524;
-  --text-muted: #524941;
-  --border: #e8dfd6;
-  --photo-bg: #f0e4d8;
-  --shadow: 0 2px 8px rgba(80, 50, 30, 0.06);
   --max-width: 980px;
   --gap: 2.75rem;
   --section-gap: 2.25rem;
   --radius: 8px;
   --radius-sm: 6px;
-}
-
-[data-theme="dark"] {
-  color-scheme: dark;
-  --color-primary: #d4956a;
-  --color-secondary: #a8896f;
-  --color-accent: #8b7355;
-  --bg: #161311;
-  --surface: #1f1b18;
-  --text: #f5efe9;
-  --text-muted: #b8aea4;
-  --border: #3a332e;
-  --photo-bg: #2a231f;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 /* ── Base ──────────────────────────────────────────────── */
@@ -277,14 +252,14 @@ a:hover {
 
 .entry__text {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.45;
   margin-bottom: 0.65rem;
 }
 
 .entry__list {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.45;
   margin-bottom: 0.75rem;
 }
@@ -581,17 +556,19 @@ a:hover {
 
 /* ── Print ─────────────────────────────────────────────── */
 @media print {
-  :root,
-  [data-theme="dark"] {
+  html[data-color-theme],
+  html[data-color-theme][data-theme="dark"] {
+    color-scheme: light;
     --bg: #fff;
     --surface: #fff;
     --text: #000;
-    --text-muted: #333;
+    --text-muted: #222;
     --border: #ccc;
-    --color-primary: #b8653a;
-    --color-secondary: #8f6f56;
-    --color-accent: #c9a88a;
     --shadow: none;
+    --photo-bg: #f5f5f5;
+    --color-primary: #000;
+    --color-secondary: #222;
+    --color-accent: #333;
   }
 
   body {

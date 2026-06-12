@@ -1,0 +1,36 @@
+/* Orange color theme — light & dark */
+[data-color-theme="orange"] {
+  color-scheme: light;
+  --color-primary: #b8653a;
+  --color-secondary: #8f6f56;
+  --color-accent: #c9a88a;
+  --bg: #faf6f2;
+  --surface: #fffcf9;
+  --text: #1c1917;
+  --text-muted: #443c36;
+  --border: #e8dfd6;
+  --photo-bg: #f0e4d8;
+  --shadow: 0 2px 8px rgba(80, 50, 30, 0.06);
+}
+
+[data-color-theme="orange"][data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #d4956a;
+  --color-secondary: #a8896f;
+  --color-accent: #8b7355;
+  --bg: #161311;
+  --surface: #1f1b18;
+  --text: #faf7f4;
+  --text-muted: #d4ccc4;
+  --border: #3a332e;
+  --photo-bg: #2a231f;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  [data-color-theme="orange"] {
+    --color-primary: #b8653a;
+    --color-secondary: #8f6f56;
+    --color-accent: #c9a88a;
+  }
+}

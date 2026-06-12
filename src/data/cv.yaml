@@ -1,6 +1,7 @@
 profile:
   name: Your Name
   title: Software Engineer
+  photo: avatar.jpg
   summary: >
     Brief professional summary. Describe your focus, years of experience,
     and what you're looking for in one or two sentences.

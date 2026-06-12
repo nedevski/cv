@@ -1,0 +1,36 @@
+/* Blue color theme — light & dark */
+[data-color-theme="blue"] {
+  color-scheme: light;
+  --color-primary: #1d4ed8;
+  --color-secondary: #475569;
+  --color-accent: #93c5fd;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --text-muted: #334155;
+  --border: #e2e8f0;
+  --photo-bg: #e0e7ff;
+  --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+[data-color-theme="blue"][data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #60a5fa;
+  --color-secondary: #94a3b8;
+  --color-accent: #3b82f6;
+  --bg: #0b1120;
+  --surface: #151f32;
+  --text: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --border: #334155;
+  --photo-bg: #1e293b;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  [data-color-theme="blue"] {
+    --color-primary: #1d4ed8;
+    --color-secondary: #475569;
+    --color-accent: #93c5fd;
+  }
+}

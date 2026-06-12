@@ -1,0 +1,36 @@
+/* Green color theme — light & dark */
+[data-color-theme="green"] {
+  color-scheme: light;
+  --color-primary: #2d6a4f;
+  --color-secondary: #52796f;
+  --color-accent: #95d5b2;
+  --bg: #f6f9f7;
+  --surface: #ffffff;
+  --text: #1b2e26;
+  --text-muted: #3d5249;
+  --border: #d8e6df;
+  --photo-bg: #d8f0e4;
+  --shadow: 0 2px 8px rgba(27, 46, 38, 0.06);
+}
+
+[data-color-theme="green"][data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #74c69d;
+  --color-secondary: #84a98c;
+  --color-accent: #40916c;
+  --bg: #0d1512;
+  --surface: #152019;
+  --text: #f0f7f4;
+  --text-muted: #b8cfc4;
+  --border: #2d4439;
+  --photo-bg: #1a2e24;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  [data-color-theme="green"] {
+    --color-primary: #2d6a4f;
+    --color-secondary: #52796f;
+    --color-accent: #95d5b2;
+  }
+}

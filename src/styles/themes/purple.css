@@ -1,0 +1,36 @@
+/* Purple color theme — light & dark */
+[data-color-theme="purple"] {
+  color-scheme: light;
+  --color-primary: #5b4b8a;
+  --color-secondary: #6b6578;
+  --color-accent: #c4b5fd;
+  --bg: #f8f7fb;
+  --surface: #ffffff;
+  --text: #1a1625;
+  --text-muted: #45405a;
+  --border: #e4e0ed;
+  --photo-bg: #e9e4f5;
+  --shadow: 0 2px 8px rgba(26, 22, 37, 0.06);
+}
+
+[data-color-theme="purple"][data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #a78bfa;
+  --color-secondary: #9b92b0;
+  --color-accent: #7c3aed;
+  --bg: #100f14;
+  --surface: #1a1822;
+  --text: #f5f3fa;
+  --text-muted: #c8c0d8;
+  --border: #3d3850;
+  --photo-bg: #252036;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  [data-color-theme="purple"] {
+    --color-primary: #5b4b8a;
+    --color-secondary: #6b6578;
+    --color-accent: #c4b5fd;
+  }
+}
