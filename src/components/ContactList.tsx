@@ -1,49 +1,79 @@
+import { FaGithub, FaLinkedin } from 'react-icons/fa6'
+import { HiEnvelope, HiMapPin, HiPhone } from 'react-icons/hi2'
+import type { IconType } from 'react-icons'
 import type { Contact } from '../types/cv'
-import { isUrl, linkDisplay } from '../utils/assetUrl'
+import { githubDisplay, isUrl, linkedinDisplay } from '../utils/assetUrl'
 
 interface ContactListProps {
   contact: Contact
 }
 
-function ExternalLink({ value }: { value: string }) {
-  if (isUrl(value)) {
-    return (
-      <a href={value} target="_blank" rel="noopener noreferrer">
-        {linkDisplay(value)}
-      </a>
-    )
-  }
+const contactIcons: Record<'email' | 'location' | 'phone' | 'linkedin' | 'github', IconType> = {
+  email: HiEnvelope,
+  location: HiMapPin,
+  phone: HiPhone,
+  linkedin: FaLinkedin,
+  github: FaGithub,
+}
 
-  return <span>{value}</span>
+function ContactIcon({ name }: { name: keyof typeof contactIcons }) {
+  const Icon = contactIcons[name]
+  return <Icon className="contact-list__icon" aria-hidden="true" />
+}
+
+function ExternalLink({
+  href,
+  children,
+}: {
+  href: string
+  children: string
+}) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  )
 }
 
 export function ContactList({ contact }: ContactListProps) {
   return (
     <ul className="contact-list">
       <li>
-        <span className="contact-list__label">Email</span>
+        <ContactIcon name="email" />
         <a href={`mailto:${contact.email}`}>{contact.email}</a>
       </li>
       {contact.phone && (
         <li>
-          <span className="contact-list__label">Phone</span>
+          <ContactIcon name="phone" />
           <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
         </li>
       )}
       <li>
-        <span className="contact-list__label">Location</span>
-        {contact.location}
+        <ContactIcon name="location" />
+        <span>{contact.location}</span>
       </li>
       {contact.linkedin && (
         <li>
-          <span className="contact-list__label">LinkedIn</span>
-          <ExternalLink value={contact.linkedin} />
+          <ContactIcon name="linkedin" />
+          {isUrl(contact.linkedin) ? (
+            <ExternalLink href={contact.linkedin}>
+              {linkedinDisplay(contact.linkedin)}
+            </ExternalLink>
+          ) : (
+            <span>{contact.linkedin}</span>
+          )}
         </li>
       )}
       {contact.github && (
         <li>
-          <span className="contact-list__label">GitHub</span>
-          <ExternalLink value={contact.github} />
+          <ContactIcon name="github" />
+          {isUrl(contact.github) ? (
+            <ExternalLink href={contact.github}>
+              {githubDisplay(contact.github)}
+            </ExternalLink>
+          ) : (
+            <span>{contact.github}</span>
+          )}
         </li>
       )}
     </ul>

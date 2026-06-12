@@ -13,15 +13,18 @@ export function CvHeader({ profile, onToggleTheme }: CvHeaderProps) {
 
   return (
     <header className="cv-header">
-      <Photo src={profile.photo} alt={profile.name} initials={initials} />
+      <div className="cv-header__identity">
+        <Photo src={profile.photo} alt={profile.name} initials={initials} />
 
-      <div className="cv-header__intro">
-        <h1 className="cv-header__name">{profile.name}</h1>
-        <p className="cv-header__title">{profile.title}</p>
-        <p className="cv-header__summary">{profile.summary}</p>
+        <div className="cv-header__intro">
+          <h1 className="cv-header__name">{profile.name}</h1>
+          <p className="cv-header__title">{profile.title}</p>
+        </div>
+
+        <ThemeToggle onToggle={onToggleTheme} />
       </div>
 
-      <ThemeToggle onToggle={onToggleTheme} />
+      <p className="cv-header__summary">{profile.summary}</p>
     </header>
   )
 }

@@ -22,3 +22,28 @@ export function linkDisplay(url: string): string {
 export function isUrl(value: string): boolean {
   return value.startsWith('http://') || value.startsWith('https://')
 }
+
+export function linkedinDisplay(value: string): string {
+  if (!isUrl(value)) {
+    return value
+  }
+
+  try {
+    return new URL(value).pathname.replace(/^\/|\/$/g, '')
+  } catch {
+    return value
+  }
+}
+
+export function githubDisplay(value: string): string {
+  if (!isUrl(value)) {
+    return value
+  }
+
+  try {
+    const segment = new URL(value).pathname.split('/').filter(Boolean)[0]
+    return segment ?? value
+  } catch {
+    return value
+  }
+}

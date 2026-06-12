@@ -1,10 +1,10 @@
 import yaml from 'js-yaml'
-import cvYaml from './data/cv.yaml?raw'
+import cvYaml from '../data/cv.yaml?raw'
 import type { CvData } from './types/cv'
 
 const DEFAULT_PHOTO = 'avatar.jpg'
 
-const dataImages = import.meta.glob<string>('./data/*.{jpg,jpeg,png,gif,webp,svg}', {
+const dataImages = import.meta.glob<string>('../data/*.{jpg,jpeg,png,gif,webp,svg}', {
   eager: true,
   query: '?url',
   import: 'default',
@@ -28,7 +28,7 @@ function assertCvData(data: unknown): asserts data is CvData {
 
 function dataImageKey(filename: string): string {
   const normalized = filename.replace(/^\.\//, '').replace(/^data\//, '')
-  return `./data/${normalized}`
+  return `../data/${normalized}`
 }
 
 function resolvePhoto(photo?: string | null): string {

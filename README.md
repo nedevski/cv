@@ -1,6 +1,6 @@
 # CV Builder
 
-React + Vite app that renders a CV from YAML files in `src/data/` and deploys to GitHub Pages.
+React + Vite app that renders a CV from YAML files in `data/` and deploys to GitHub Pages.
 
 ## Development
 
@@ -11,9 +11,9 @@ npm run dev
 
 Open the URL shown in the terminal (served at `/` locally).
 
-## Data files (`src/data/`)
+## Data files (`data/`)
 
-All content and site settings live in `src/data/` as YAML. Edit these files to customize your CV — no component changes are needed for content updates.
+All content and site settings live in `data/` as YAML. Edit these files to customize your CV — no component changes are needed for content updates.
 
 | File | Purpose |
 |------|---------|
@@ -31,7 +31,7 @@ Structured sections you can edit:
 - **projects** / **personalProjects** — client work and side projects
 - **certifications**, **education**, **languages**, **hobbies**
 
-Place images in `src/data/` and reference them by filename (e.g. `avatar.jpg`). Set `profile.photo` to an external URL to use a remote image instead.
+Place images in `data/` and reference them by filename (e.g. `avatar.jpg`). Set `profile.photo` to an external URL to use a remote image instead.
 
 ### `site.yaml`
 

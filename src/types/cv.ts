@@ -36,7 +36,6 @@ export interface CertificationEntry {
   title: string
   issuer: string
   year?: string | null
-  url?: string | null
   verifyUrl?: string | null
   verifyLabel?: string | null
 }

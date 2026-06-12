@@ -12,7 +12,7 @@ export function EntryMeta({ parts }: EntryMetaProps) {
     <span className="entry__meta">
       {visibleParts.map((part, index) => (
         <span key={index}>
-          {index > 0 ? ' · ' : null}
+          {index > 0 ? <span className="entry__meta-sep" aria-hidden="true">•</span> : null}
           {part}
         </span>
       ))}

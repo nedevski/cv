@@ -1,5 +1,5 @@
 import yaml from 'js-yaml'
-import siteYaml from './data/site.yaml?raw'
+import siteYaml from '../data/site.yaml?raw'
 import {
   COLOR_THEMES,
   THEME_MODES,

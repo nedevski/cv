@@ -18,15 +18,7 @@ export function CertificationEntry({ entry }: CertificationEntryProps) {
 
   return (
     <article className="entry entry--compact">
-      <h3 className="entry__title">
-        {entry.url ? (
-          <a href={entry.url} target="_blank" rel="noopener noreferrer">
-            {entry.title}
-          </a>
-        ) : (
-          entry.title
-        )}
-      </h3>
+      <h3 className="entry__title">{entry.title}</h3>
       <EntryMeta parts={metaParts} />
     </article>
   )
