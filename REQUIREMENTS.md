@@ -286,8 +286,8 @@ Record choices here as they are made during implementation:
 
 | Topic | Options | Decision |
 |-------|---------|----------|
-| YAML load strategy | Build-time import vs runtime fetch | _TBD_ |
-| GitHub Pages URL type | Project pages (`/repo-name/`) vs user pages (`/`) | _TBD_ |
-| Empty sections | Hide section vs show empty heading | _TBD_ |
-| Theme overrides in YAML | Support `theme.light` / `theme.dark` or CSS-only | _TBD_ |
-| Photo asset path | Relative in `public/` vs absolute URL | _TBD_ |
+| YAML load strategy | Build-time import vs runtime fetch | **Build-time import** (`cv.yaml?raw` + `js-yaml`) |
+| GitHub Pages URL type | Project pages (`/repo-name/`) vs user pages (`/`) | **Project pages** — `base` defaults to `/cv-test/`, CI sets `VITE_BASE_PATH=/${{ github.event.repository.name }}/` |
+| Empty sections | Hide section vs show empty heading | **Hide** empty list sections; Contact always shown |
+| Theme overrides in YAML | Support `theme.light` / `theme.dark` or CSS-only | **CSS-only** (variables in `src/styles/cv.css`) |
+| Photo asset path | Relative in `public/` vs absolute URL | **Both** — relative paths resolve via `import.meta.env.BASE_URL`; absolute URLs pass through |

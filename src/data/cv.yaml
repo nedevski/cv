@@ -1,0 +1,189 @@
+profile:
+  name: Your Name
+  title: Software Engineer
+  summary: >
+    Brief professional summary. Describe your focus, years of experience,
+    and what you're looking for in one or two sentences.
+contact:
+  email: you@email.com
+  phone: "+1 234 567 890"
+  location: City, Country
+  linkedin: https://linkedin.com/in/yourname
+  github: https://github.com/yourname
+
+experience:
+  - title: Senior Developer
+    organization: Company Name
+    period: 2022 – Present
+    highlights:
+      - Led development of a customer-facing platform serving 50k+ users.
+      - Reduced page load time by 40% through performance optimizations.
+      - Mentored a team of four junior developers.
+  - title: Software Developer
+    organization: Previous Company
+    period: 2019 – 2022
+    highlights:
+      - Built REST APIs and integrated third-party services.
+      - Collaborated with design and product teams on feature delivery.
+  - title: Junior Developer
+    organization: First Company
+    period: 2017 – 2019
+    highlights:
+      - Developed features for an internal admin portal using C# and SQL Server.
+      - Wrote unit tests and participated in code reviews.
+
+projects:
+  - title: Enterprise Dashboard
+    client: Client Name
+    period: "2024"
+    url: https://example.com/dashboard
+    urlLabel: example.com/dashboard
+    description: >
+      Real-time analytics dashboard used by internal teams to monitor KPIs
+      and operational metrics across multiple regions.
+    highlights:
+      - Designed and built interactive data visualizations for executive reporting.
+      - Integrated multiple data sources via REST APIs and scheduled ETL jobs.
+      - Implemented role-based access control and audit logging.
+    technologies:
+      - React
+      - TypeScript
+      - .NET
+      - Azure
+      - PostgreSQL
+  - title: Payment Integration
+    client: Client Name
+    period: "2023"
+    url: https://example.com/payments
+    urlLabel: example.com/payments
+    description: >
+      End-to-end payment flow integrating Stripe and legacy billing systems
+      for a subscription-based SaaS product.
+    highlights:
+      - Built webhook handlers for payment events and subscription lifecycle.
+      - Migrated legacy billing data with zero downtime deployment strategy.
+      - Added reconciliation tooling for finance team reporting.
+    technologies:
+      - C#
+      - Stripe API
+      - SQL Server
+      - RabbitMQ
+  - title: Mobile Banking App
+    client: Client Name
+    period: "2023"
+    url: https://example.com/banking
+    urlLabel: example.com/banking
+    description: >
+      Cross-platform mobile app for account management, transfers, and
+      push-notification alerts for retail banking customers.
+    highlights:
+      - Developed secure authentication with biometric login support.
+      - Implemented offline-first transaction history and sync.
+      - Collaborated with UX team on accessibility improvements (WCAG 2.1).
+    technologies:
+      - React Native
+      - Node.js
+      - Redis
+      - Firebase
+  - title: Inventory Management System
+    client: Client Name
+    period: "2022"
+    url: https://example.com/inventory
+    urlLabel: example.com/inventory
+    description: >
+      Warehouse tracking system with barcode scanning, stock alerts, and
+      ERP integration for a logistics company.
+    highlights:
+      - Built barcode scanning module for handheld warehouse devices.
+      - Created automated low-stock alerts and reorder workflows.
+      - Integrated with SAP ERP for purchase order synchronization.
+    technologies:
+      - Angular
+      - .NET Core
+      - SAP
+      - Docker
+  - title: Customer Support Portal
+    client: Client Name
+    period: "2022"
+    url: https://example.com/support
+    urlLabel: example.com/support
+    description: >
+      Ticketing and live-chat platform that reduced average response time
+      by 30% for a mid-size e-commerce business.
+    highlights:
+      - Implemented real-time chat using WebSockets and message queuing.
+      - Built agent dashboard with ticket routing and SLA tracking.
+      - Added knowledge base search with full-text indexing.
+    technologies:
+      - Vue.js
+      - SignalR
+      - Elasticsearch
+      - AWS
+
+personalProjects:
+  - title: Open Source CLI Tool
+    client: Personal
+    period: "2024"
+    url: https://github.com/yourname/project
+    urlLabel: github.com/yourname/project
+    description: >
+      A CLI utility that automates repetitive dev workflows. Used by 200+ developers.
+    highlights:
+      - Designed plugin architecture for extensible command modules.
+      - Published to npm and maintained community issue backlog.
+      - Wrote documentation and CI pipeline for cross-platform releases.
+    technologies:
+      - Node.js
+      - TypeScript
+      - GitHub Actions
+  - title: Portfolio Website
+    client: Personal
+    period: "2023"
+    url: https://yourwebsite.com
+    urlLabel: yourwebsite.com
+    description: >
+      Static site showcasing work samples, blog posts, and contact information.
+    highlights:
+      - Built responsive layout with print-friendly CV export.
+      - Optimized for Lighthouse performance score above 95.
+      - Deployed via GitHub Pages with custom domain and HTTPS.
+    technologies:
+      - HTML
+      - CSS
+      - JavaScript
+
+certifications:
+  - title: AWS Certified Developer – Associate
+    issuer: Amazon Web Services
+    year: "2024"
+    url: https://aws.amazon.com/certification/certified-developer-associate/
+    verifyUrl: https://www.credly.com/badges/example-aws
+    verifyLabel: Verify credential
+  - title: Professional Scrum Master I
+    issuer: Scrum.org
+    year: "2023"
+    url: https://www.scrum.org/professional-scrum-master-i-certification
+    verifyUrl: https://www.scrum.org/certificates/example-psm
+    verifyLabel: Verify credential
+
+education:
+  - degree: BSc Computer Science
+    institution: University Name
+    period: 2015 – 2019
+
+languages:
+  - name: English
+    level: Native
+    proficiency: 100
+  - name: Spanish
+    level: Professional
+    proficiency: 80
+  - name: French
+    level: Basic
+    proficiency: 35
+
+hobbies:
+  - Running
+  - Photography
+  - Chess
+  - Reading
