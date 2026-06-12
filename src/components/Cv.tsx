@@ -37,6 +37,7 @@ export function Cv({ data, onToggleTheme }: CvProps) {
                 ))}
               </CvSection>
             )}
+
           </div>
 
           <aside className="cv-column cv-column--secondary">
@@ -76,7 +77,7 @@ export function Cv({ data, onToggleTheme }: CvProps) {
           )}
 
           {personalProjects.length > 0 && (
-            <CvSection title="Personal Projects" contentClassName="timeline">
+            <CvSection title="Personal Projects" contentClassName="timeline timeline--compact">
               {personalProjects.map((entry) => (
                 <ProjectEntry key={`${entry.title}-${entry.period ?? ''}`} entry={entry} />
               ))}
@@ -84,7 +85,7 @@ export function Cv({ data, onToggleTheme }: CvProps) {
           )}
 
           {certifications.length > 0 && (
-            <CvSection title="Certifications">
+            <CvSection title="Certifications" contentClassName="timeline">
               {certifications.map((entry) => (
                 <CertificationEntry key={`${entry.title}-${entry.issuer}`} entry={entry} />
               ))}

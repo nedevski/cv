@@ -7,11 +7,16 @@ export interface Profile {
 }
 
 export interface Contact {
-  email: string
+  email?: string | null
   phone?: string | null
-  location: string
+  location?: string | null
+  website?: string | null
   linkedin?: string | null
   github?: string | null
+  gitlab?: string | null
+  facebook?: string | null
+  instagram?: string | null
+  youtube?: string | null
 }
 
 export interface ExperienceEntry {

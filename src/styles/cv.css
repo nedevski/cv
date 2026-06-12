@@ -157,6 +157,11 @@ a:hover {
   padding-bottom: 0.5rem;
 }
 
+.cv-page--full .entry--compact {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
 /* ── Header actions ────────────────────────────────────── */
 .cv-header__actions {
   flex-shrink: 0;
@@ -315,6 +320,10 @@ a:hover {
   margin-bottom: 0.65rem;
 }
 
+.entry__text:last-child {
+  margin-bottom: 0;
+}
+
 .entry__list {
   font-size: 0.875rem;
   color: var(--text);
@@ -431,6 +440,11 @@ a:hover {
 
 .timeline .entry::after {
   content: none;
+}
+
+.timeline--compact .entry {
+  margin-bottom: 1.1rem;
+  padding-bottom: 1.1rem;
 }
 
 /* ── Contact ───────────────────────────────────────────── */
