@@ -367,8 +367,8 @@ a:hover {
 
 .photo__frame {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
   border: 3px solid var(--color-accent);
   background: var(--photo-bg);
@@ -394,7 +394,7 @@ a:hover {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 600;
   color: var(--color-primary);
   letter-spacing: 0.05em;
@@ -592,12 +592,12 @@ a:hover {
   }
 
   .photo__frame {
-    width: 96px;
-    height: 96px;
+    width: 105.6px;
+    height: 105.6px;
   }
 
   .photo__initials {
-    font-size: 1.6rem;
+    font-size: 1.76rem;
   }
 
   .cv-section__toggle {
