@@ -1,9 +1,9 @@
 /* Green color theme — light & dark */
 [data-color-theme="green"] {
   color-scheme: light;
-  --color-primary: #2d6a4f;
-  --color-secondary: #52796f;
-  --color-accent: #95d5b2;
+  --color-primary: #1a8f55;
+  --color-secondary: #3d8568;
+  --color-accent: #4fd492;
   --bg: #f6f9f7;
   --surface: #ffffff;
   --text: #1b2e26;
@@ -15,9 +15,9 @@
 
 [data-color-theme="green"][data-theme="dark"] {
   color-scheme: dark;
-  --color-primary: #74c69d;
-  --color-secondary: #84a98c;
-  --color-accent: #40916c;
+  --color-primary: #5ae8a4;
+  --color-secondary: #72d4a8;
+  --color-accent: #2dba72;
   --bg: #0d1512;
   --surface: #152019;
   --text: #f0f7f4;
@@ -29,8 +29,8 @@
 
 @media print {
   [data-color-theme="green"] {
-    --color-primary: #2d6a4f;
-    --color-secondary: #52796f;
-    --color-accent: #95d5b2;
+    --color-primary: #1a8f55;
+    --color-secondary: #3d8568;
+    --color-accent: #4fd492;
   }
 }

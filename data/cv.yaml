@@ -4,7 +4,7 @@ general:
   repository: https://github.com/nedevski/cv
   favicon: favicon.svg
   mode: dark
-  theme: orange
+  theme: orange # blue, green, olive, orange, purple, red, teal
 
 profile:
   name: Nikola Nedevski
