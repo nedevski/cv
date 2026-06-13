@@ -70,6 +70,18 @@ a:hover {
   padding: 2.5rem 1.5rem 3.5rem;
 }
 
+.cv-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.cv-footer__text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 .cv-header {
   display: flex;
   flex-direction: column;
@@ -676,6 +688,10 @@ a:hover {
 
   .cv-header__actions {
     display: none;
+  }
+
+  .cv-footer {
+    display: none !important;
   }
 
   .cv-header {

@@ -61,6 +61,10 @@ function parseGeneral(data: Record<string, unknown>): GeneralConfig {
     config.url = raw.url.trim()
   }
 
+  if (typeof raw.repository === 'string' && raw.repository.trim()) {
+    config.repository = raw.repository.trim()
+  }
+
   return config
 }
 

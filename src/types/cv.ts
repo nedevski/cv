@@ -6,6 +6,7 @@ export interface GeneralConfig {
   theme: ColorTheme
   mode: ThemeMode
   url?: string
+  repository?: string
 }
 
 export interface Profile {

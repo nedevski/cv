@@ -2,6 +2,7 @@ import type { CvData } from '../types/cv'
 import { CertificationEntry } from './CertificationEntry'
 import { ChipList } from './ChipList'
 import { ContactList } from './ContactList'
+import { CvFooter } from './CvFooter'
 import { CvHeader } from './CvHeader'
 import { CvSection } from './CvSection'
 import { EducationEntry } from './EducationEntry'
@@ -93,6 +94,8 @@ export function Cv({ data, onToggleTheme }: CvProps) {
           )}
         </div>
       </main>
+
+      <CvFooter general={data.general} profile={data.profile} />
     </div>
   )
 }

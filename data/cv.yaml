@@ -1,6 +1,7 @@
 general:
   title: Nikola Nedevski - Resume
   url: https://cv.nedev.ski
+  repository: https://github.com/nedevski/cv
   favicon: favicon.svg
   mode: dark
   theme: orange
