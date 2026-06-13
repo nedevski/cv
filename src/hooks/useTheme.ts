@@ -12,9 +12,22 @@ function getPreferredTheme(defaultMode: ThemeMode): ThemeMode {
   return defaultMode
 }
 
-function applyTheme(theme: ThemeMode) {
-  document.documentElement.setAttribute('data-theme', theme)
-  localStorage.setItem(STORAGE_KEY, theme)
+function applyTheme(theme: ThemeMode, animate = false) {
+  const update = () => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem(STORAGE_KEY, theme)
+  }
+
+  if (
+    animate &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+    typeof document.startViewTransition === 'function'
+  ) {
+    document.startViewTransition(update)
+    return
+  }
+
+  update()
 }
 
 export function useTheme(defaultMode: ThemeMode) {
@@ -24,7 +37,7 @@ export function useTheme(defaultMode: ThemeMode) {
 
   const toggleTheme = useCallback(() => {
     const current = document.documentElement.getAttribute('data-theme')
-    applyTheme(current === 'dark' ? 'light' : 'dark')
+    applyTheme(current === 'dark' ? 'light' : 'dark', true)
   }, [])
 
   return { toggleTheme }

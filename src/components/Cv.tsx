@@ -1,4 +1,5 @@
 import type { CvData } from '../types/cv'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import { CertificationEntry } from './CertificationEntry'
 import { ChipList } from './ChipList'
 import { ContactList } from './ContactList'
@@ -16,6 +17,7 @@ interface CvProps {
 }
 
 export function Cv({ data, onToggleTheme }: CvProps) {
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   const experience = data.experience ?? []
   const projects = data.projects ?? []
   const personalProjects = data.personalProjects ?? []
@@ -25,7 +27,7 @@ export function Cv({ data, onToggleTheme }: CvProps) {
   const hobbies = data.hobbies ?? []
 
   return (
-    <div className="cv">
+    <div className={prefersReducedMotion ? 'cv' : 'cv cv--motion'}>
       <CvHeader profile={data.profile} onToggleTheme={onToggleTheme} />
 
       <main className="cv-main">

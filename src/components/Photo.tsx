@@ -7,14 +7,16 @@ interface PhotoProps {
   initials: string
 }
 
+type PhotoLoadState = 'loading' | 'loaded' | 'failed'
+
 export function Photo({ src, alt, initials }: PhotoProps) {
   const resolvedSrc = src ? resolveAssetUrl(src) : null
-  const [loaded, setLoaded] = useState(false)
+  const [loadState, setLoadState] = useState<PhotoLoadState>('loading')
   const [prevSrc, setPrevSrc] = useState(resolvedSrc)
 
   if (resolvedSrc !== prevSrc) {
     setPrevSrc(resolvedSrc)
-    setLoaded(false)
+    setLoadState('loading')
   }
 
   if (!resolvedSrc) {
@@ -29,23 +31,31 @@ export function Photo({ src, alt, initials }: PhotoProps) {
     )
   }
 
+  const showInitials = loadState === 'failed'
+
   return (
     <div className="photo cv-header__photo">
-      <div className={`photo__frame${loaded ? ' photo__frame--loaded' : ''}`}>
-        <img
-          key={resolvedSrc}
-          src={resolvedSrc}
-          alt={alt}
-          className="photo__img"
-          onLoad={(event) => {
-            const image = event.currentTarget
-            setLoaded(image.naturalWidth > 0)
-          }}
-          onError={() => setLoaded(false)}
-        />
-        <span className="photo__initials" aria-hidden="true">
-          {initials}
-        </span>
+      <div
+        className={`photo__frame${loadState === 'loaded' ? ' photo__frame--loaded' : ''}`}
+      >
+        {loadState !== 'failed' && (
+          <img
+            key={resolvedSrc}
+            src={resolvedSrc}
+            alt={alt}
+            className="photo__img"
+            onLoad={(event) => {
+              const image = event.currentTarget
+              setLoadState(image.naturalWidth > 0 ? 'loaded' : 'failed')
+            }}
+            onError={() => setLoadState('failed')}
+          />
+        )}
+        {showInitials && (
+          <span className="photo__initials" aria-hidden="true">
+            {initials}
+          </span>
+        )}
       </div>
     </div>
   )

@@ -1,4 +1,6 @@
+import { useRef } from 'react'
 import type { ProjectEntry as ProjectEntryType } from '../types/cv'
+import { useInView } from '../hooks/useInView'
 import { ChipList } from './ChipList'
 import { EntryMeta } from './EntryMeta'
 
@@ -7,6 +9,8 @@ interface ProjectEntryProps {
 }
 
 export function ProjectEntry({ entry }: ProjectEntryProps) {
+  const entryRef = useRef<HTMLElement>(null)
+  const isInView = useInView(entryRef, { threshold: 0 })
   const metaParts = [
     entry.period ?? null,
     entry.client ?? null,
@@ -18,7 +22,7 @@ export function ProjectEntry({ entry }: ProjectEntryProps) {
   ]
 
   return (
-    <article className="entry">
+    <article ref={entryRef} className={`entry${isInView ? ' is-in-view' : ''}`}>
       <div className="entry__header">
         <h3 className="entry__title">{entry.title}</h3>
         <EntryMeta parts={metaParts} />

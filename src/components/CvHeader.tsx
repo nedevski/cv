@@ -3,6 +3,7 @@ import { deriveInitials } from '../utils/initials'
 import { Photo } from './Photo'
 import { PrintButton } from './PrintButton'
 import { ThemeToggle } from './ThemeToggle'
+import { TypingText } from './TypingText'
 
 interface CvHeaderProps {
   profile: Profile
@@ -19,7 +20,7 @@ export function CvHeader({ profile, onToggleTheme }: CvHeaderProps) {
 
         <div className="cv-header__intro">
           <h1 className="cv-header__name">{profile.name}</h1>
-          <p className="cv-header__title">{profile.title}</p>
+          <TypingText text={profile.title} className="cv-header__title" />
         </div>
 
         <div className="cv-header__actions">

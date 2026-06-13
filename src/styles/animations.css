@@ -1,0 +1,266 @@
+/* Screen-only motion — print and reduced-motion fallbacks stay static */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .cv--motion .timeline .entry,
+  .cv--motion .timeline::before,
+  .cv--motion .timeline .entry::before,
+  .cv--motion .entry .chip-list--tech .chip {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ── Theme toggle: cross-fade light/dark ─────────────── */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.35s;
+    animation-timing-function: ease;
+  }
+
+  /* ── Hero: typing cursor ─────────────────────────────── */
+  .cv--motion .typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.95em;
+    margin-left: 2px;
+    background: currentColor;
+    vertical-align: text-bottom;
+    animation: cursor-blink 0.75s step-end infinite;
+  }
+
+  /* ── Timeline: initial (pre-reveal) states ───────────── */
+  .cv--motion .timeline::before {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .cv--motion .timeline .entry {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .cv--motion .timeline .entry::before {
+    transform: scale(0);
+  }
+
+  /* ── Timeline: scroll reveal ─────────────────────────── */
+  .cv--motion .timeline.is-in-view::before {
+    animation: timeline-line 0.65s ease-out forwards;
+  }
+
+  .cv--motion .timeline.is-in-view .entry {
+    animation: timeline-entry 0.65s ease-out forwards;
+  }
+
+  .cv--motion .timeline.is-in-view .entry::before {
+    animation: timeline-dot 0.4s ease-out forwards;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(1) {
+    animation-delay: 0.15s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(1)::before {
+    animation-delay: 0.1s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(2) {
+    animation-delay: 0.28s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(2)::before {
+    animation-delay: 0.23s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(3) {
+    animation-delay: 0.41s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(3)::before {
+    animation-delay: 0.36s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(4) {
+    animation-delay: 0.54s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(4)::before {
+    animation-delay: 0.49s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(5) {
+    animation-delay: 0.67s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(5)::before {
+    animation-delay: 0.62s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(6) {
+    animation-delay: 0.8s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(6)::before {
+    animation-delay: 0.75s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(n + 7) {
+    animation-delay: 0.93s;
+  }
+
+  .cv--motion .timeline.is-in-view .entry:nth-child(n + 7)::before {
+    animation-delay: 0.88s;
+  }
+
+  /* ── Tech chips: pre-reveal state ────────────────────── */
+  .cv--motion .entry .chip-list--tech .chip {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  /* ── Tech chips: pop in on hover or scroll ──────────── */
+  .cv--motion .entry.is-in-view .chip-list--tech .chip,
+  .cv--motion .entry:hover .chip-list--tech .chip {
+    animation: chip-pop-in 0.975s ease-out forwards;
+  }
+
+  .cv--motion .entry.is-in-view .chip-list--tech .chip:nth-child(1),
+  .cv--motion .entry:hover .chip-list--tech .chip:nth-child(1) {
+    animation-delay: 0.16s;
+  }
+
+  .cv--motion .entry.is-in-view .chip-list--tech .chip:nth-child(2),
+  .cv--motion .entry:hover .chip-list--tech .chip:nth-child(2) {
+    animation-delay: 0.31s;
+  }
+
+  .cv--motion .entry.is-in-view .chip-list--tech .chip:nth-child(3),
+  .cv--motion .entry:hover .chip-list--tech .chip:nth-child(3) {
+    animation-delay: 0.47s;
+  }
+
+  .cv--motion .entry.is-in-view .chip-list--tech .chip:nth-child(4),
+  .cv--motion .entry:hover .chip-list--tech .chip:nth-child(4) {
+    animation-delay: 0.62s;
+  }
+
+  .cv--motion .entry.is-in-view .chip-list--tech .chip:nth-child(5),
+  .cv--motion .entry:hover .chip-list--tech .chip:nth-child(5) {
+    animation-delay: 0.78s;
+  }
+
+  .cv--motion .entry.is-in-view .chip-list--tech .chip:nth-child(6),
+  .cv--motion .entry:hover .chip-list--tech .chip:nth-child(6) {
+    animation-delay: 0.94s;
+  }
+
+  .cv--motion .entry.is-in-view .chip-list--tech .chip:nth-child(n + 7),
+  .cv--motion .entry:hover .chip-list--tech .chip:nth-child(n + 7) {
+    animation-delay: 1.09s;
+  }
+
+  /* ── Contact row: icon nudge + underline on hover ────── */
+  .cv--motion .contact-list__icon {
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .cv--motion .contact-list li > :not(.contact-list__icon) {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.15em;
+    transition: text-decoration-color 0.2s ease, color 0.2s ease;
+  }
+
+  .cv--motion .contact-list li:hover .contact-list__icon {
+    transform: translateX(2px);
+    color: var(--color-primary);
+  }
+
+  .cv--motion .contact-list li:hover > :not(.contact-list__icon) {
+    text-decoration-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+    color: var(--color-primary);
+  }
+
+  /* ── Photo: one-cycle ring pulse on load ─────────────── */
+  .cv--motion .photo__frame {
+    animation:
+      photo-scale-in 0.55s ease-out both,
+      photo-ring-pulse 1.1s ease-out 0.45s both;
+  }
+}
+
+@keyframes photo-scale-in {
+  from {
+    opacity: 0.85;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes timeline-line {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes timeline-entry {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes timeline-dot {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes chip-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes photo-ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+
+  45% {
+    box-shadow: 0 0 0 16px color-mix(in srgb, var(--color-accent) 0%, transparent);
+  }
+
+  100% {
+    box-shadow: none;
+  }
+}
