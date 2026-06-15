@@ -21,6 +21,7 @@ jobs:
     env:
       # Site root (custom domain or user/org pages). Override via repo or environment variable.
       VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/' }}
+      VITE_CF_WEB_ANALYTICS_TOKEN: ${{ vars.VITE_CF_WEB_ANALYTICS_TOKEN }}
       PAGES_CUSTOM_DOMAIN: ${{ vars.PAGES_CUSTOM_DOMAIN }}
     steps:
       - name: Checkout

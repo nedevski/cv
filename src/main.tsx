@@ -9,11 +9,13 @@ import './styles/themes/teal.css'
 import './styles/themes/purple.css'
 import './styles/themes/red.css'
 import './styles/themes/olive.css'
+import { initAnalytics } from './initAnalytics'
 import { initSite } from './initSite'
 import { cvData } from './loadCv'
 import App from './App.tsx'
 
 initSite(cvData.general)
+initAnalytics()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

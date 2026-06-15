@@ -35,3 +35,19 @@ In the repo: **Settings → Pages → Source** → GitHub Actions.
 Optional env vars (repo or `github-pages` environment):
 
 - `PAGES_CUSTOM_DOMAIN` — e.g. `cv.example.com` (or set it under Pages → Custom domain)
+- `VITE_CF_WEB_ANALYTICS_TOKEN` — Cloudflare Web Analytics beacon token (see below)
+
+### Analytics (optional)
+
+Uses [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/). The site does **not** need to be proxied through Cloudflare.
+
+1. [Cloudflare dashboard](https://dash.cloudflare.com) → **Analytics** → **Web Analytics** → **Add a site**
+2. Type your hostname manually (no `https://`, no path):
+   - GitHub Pages: `username.github.io` (not the `/repo` path)
+   - Custom domain: e.g. `cv.example.com`
+3. Select the hostname from the suggestion, then **Done**
+4. Open **Manage site** on the new site card and copy the **token** from the snippet (`data-cf-beacon` → `"token"`). You do not need to paste the snippet into this repo — the app injects it at build time.
+5. Set the GitHub Actions variable `VITE_CF_WEB_ANALYTICS_TOKEN` (repo or `github-pages` environment):
+6. Redeploy (push to `main` or re-run the deploy workflow)
+
+For local testing, put the token in `.env.local` as `VITE_CF_WEB_ANALYTICS_TOKEN=...` (gitignored).
