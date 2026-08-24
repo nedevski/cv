@@ -2,7 +2,8 @@
 
 interface ImportMetaEnv {
   readonly VITE_BASE_PATH: string
-  readonly VITE_CF_WEB_ANALYTICS_TOKEN?: string
+  readonly VITE_UMAMI_WEBSITE_ID?: string
+  readonly VITE_UMAMI_DOMAINS?: string
 }
 
 interface ImportMeta {
