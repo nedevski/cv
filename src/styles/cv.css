@@ -142,7 +142,7 @@ a:hover {
 }
 
 .cv-column--secondary {
-  --sidebar-section-gap: 1.125rem;
+  --sidebar-section-gap: 1.75rem;
   padding: var(--sidebar-inset);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -168,8 +168,12 @@ a:hover {
   margin-bottom: var(--sidebar-section-gap);
 }
 
+.cv-column--secondary .cv-section:last-child {
+  margin-bottom: 0;
+}
+
 .cv-column--secondary .cv-section__content {
-  margin-top: 0.85rem;
+  margin-top: 0.75rem;
 }
 
 .cv-column--secondary .entry--compact {
@@ -301,10 +305,6 @@ a:hover {
 
   .cv-section__content {
     margin-top: 2rem;
-  }
-
-  .cv-column--secondary .cv-section__content {
-    margin-top: 1.75rem;
   }
 }
 
