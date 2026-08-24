@@ -11,8 +11,8 @@ interface CvSectionProps {
 }
 
 export function CvSection({ title, children, contentClassName }: CvSectionProps) {
-  const headerRef = useRef<HTMLButtonElement>(null)
-  const isInView = useInView(headerRef, { threshold: 0 })
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { threshold: 0 })
   const isTimeline = contentClassName?.includes('timeline') ?? false
   const isMobile = useMediaQuery(MOBILE_BREAKPOINT)
   const [collapsed, setCollapsed] = useState(false)
@@ -27,12 +27,12 @@ export function CvSection({ title, children, contentClassName }: CvSectionProps)
 
   return (
     <section
+      ref={sectionRef}
       className={`cv-section${isInView ? ' is-in-view' : ''}`}
       data-collapsible
       {...(collapsed ? { 'data-collapsed': true } : {})}
     >
       <button
-        ref={headerRef}
         type="button"
         className="cv-section__toggle"
         aria-expanded={expanded}
