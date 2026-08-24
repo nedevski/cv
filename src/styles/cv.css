@@ -1,8 +1,8 @@
 /* ── Layout tokens (colors live in styles/themes/*.css) ── */
 :root {
-  --max-width: 980px;
+  --max-width: 1200px;
   --gap: 2.75rem;
-  --section-gap: 2.25rem;
+  --section-gap: 1.125rem;
   --radius: 8px;
   --radius-sm: 6px;
 }
@@ -142,7 +142,7 @@ a:hover {
 }
 
 .cv-column--secondary {
-  --sidebar-section-gap: 2.25rem;
+  --sidebar-section-gap: 1.125rem;
   padding: var(--sidebar-inset);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -151,6 +151,14 @@ a:hover {
 }
 
 @media screen and (min-width: 721px) {
+  html {
+    font-size: 19px;
+  }
+
+  .cv {
+    padding: 2.5rem 2rem 3.5rem;
+  }
+
   .cv-column--primary > .cv-section:first-child .cv-section__toggle {
     padding-top: var(--sidebar-inset);
   }
@@ -286,10 +294,24 @@ a:hover {
   margin-top: 1.25rem;
 }
 
+@media screen {
+  .cv-section__toggle {
+    padding-bottom: 0.3rem;
+  }
+
+  .cv-section__content {
+    margin-top: 2rem;
+  }
+
+  .cv-column--secondary .cv-section__content {
+    margin-top: 1.75rem;
+  }
+}
+
 /* ── Entries ───────────────────────────────────────────── */
 .entry {
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.75rem;
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.875rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -451,8 +473,8 @@ a:hover {
 }
 
 .timeline--compact .entry {
-  margin-bottom: 1.1rem;
-  padding-bottom: 1.1rem;
+  margin-bottom: 0.55rem;
+  padding-bottom: 0.55rem;
 }
 
 /* ── Contact ───────────────────────────────────────────── */
@@ -551,10 +573,6 @@ a:hover {
 
 /* ── Mobile: collapsible sections (screen only — print keeps desktop layout) */
 @media screen and (max-width: 720px) {
-  html {
-    font-size: 16px;
-  }
-
   .cv {
     padding: 1.5rem 1rem 2.5rem;
   }
@@ -586,12 +604,12 @@ a:hover {
   }
 
   .cv-main {
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .cv-page--columns {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .cv-column--secondary {
@@ -609,7 +627,7 @@ a:hover {
 
   .cv-section__toggle {
     cursor: pointer;
-    padding: 0.85rem 0;
+    padding: 0.35rem 0 0.3rem;
     border-bottom: 1px solid var(--border);
   }
 
@@ -637,13 +655,34 @@ a:hover {
     padding-block-end: 0.25rem;
   }
 
-  .cv-section__content:not(.timeline) {
-    padding-block-start: 0.5rem;
-  }
-
   .cv-section:has(.timeline) {
     --timeline-gutter: 1.1rem;
     --timeline-gap: 0.75rem;
+  }
+
+  .cv-section__title {
+    font-size: 1.18rem;
+  }
+
+  .entry__title {
+    font-size: 1.16rem;
+  }
+
+  .entry--compact .entry__title {
+    font-size: 1.1rem;
+  }
+
+  .entry__meta {
+    font-size: 0.9rem;
+  }
+
+  .entry__text,
+  .entry__list {
+    font-size: 0.95rem;
+  }
+
+  .chip-list--tech .chip {
+    font-size: 0.88rem;
   }
 }
 
@@ -817,6 +856,11 @@ a:hover {
     padding-bottom: 0.9rem;
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  .timeline--compact .entry {
+    margin-bottom: 1.1rem;
+    padding-bottom: 1.1rem;
   }
 
   .entry__list {
