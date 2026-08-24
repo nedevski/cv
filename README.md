@@ -13,7 +13,7 @@ npm run dev
 
 The full CV structure is in `data/cv.yaml` — `profile`, `contact`, `experience`, `projects`, `education`, and the rest. Contact fields are all optional; anything omitted is not rendered.
 
-Images belong in `data/` and are referenced by filename (e.g. `profile.photo: profile.jpg`). Remote URLs are supported as well. The favicon is `public/favicon.svg` by default, overridable via `general.favicon`.
+Images belong in `data/` and are referenced by filename (e.g. `profile.photo: profile.jpg`). Remote URLs are supported as well. The favicon is `public/favicon.svg` by default, overridable via `general.favicon`. Certification issuer icons live in `public/icons/` and are referenced from YAML as `icon: icons/microsoft.svg`.
 
 **Themes:** `general.theme` selects the color palette (`orange`, `blue`, `green`, `teal`, `purple`, `red`, `olive`). `general.mode` is the default light/dark appearance; visitors can toggle it and the choice is stored in `localStorage`.
 

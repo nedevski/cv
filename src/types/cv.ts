@@ -51,6 +51,7 @@ export interface ProjectEntry {
 export interface CertificationEntry {
   title: string
   issuer: string
+  icon: string
   year?: string | null
   verifyUrl?: string | null
   verifyLabel?: string | null

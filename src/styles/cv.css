@@ -347,6 +347,22 @@ a:hover {
   opacity: 0.75;
 }
 
+.entry__issuer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  vertical-align: middle;
+}
+
+.entry__issuer-icon {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  flex-shrink: 0;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
 .entry__text {
   font-size: 0.875rem;
   color: var(--text);

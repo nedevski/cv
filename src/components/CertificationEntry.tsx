@@ -1,4 +1,5 @@
 import type { CertificationEntry as CertificationEntryType } from '../types/cv'
+import { resolveAssetUrl } from '../utils/assetUrl'
 import { EntryMeta } from './EntryMeta'
 
 interface CertificationEntryProps {
@@ -6,8 +7,15 @@ interface CertificationEntryProps {
 }
 
 export function CertificationEntry({ entry }: CertificationEntryProps) {
+  const issuer = (
+    <span className="entry__issuer">
+      <img src={resolveAssetUrl(entry.icon)} alt="" className="entry__issuer-icon" />
+      {entry.issuer}
+    </span>
+  )
+
   const metaParts = [
-    entry.issuer,
+    issuer,
     entry.year ?? null,
     entry.verifyUrl ? (
       <a href={entry.verifyUrl} target="_blank" rel="noopener noreferrer">

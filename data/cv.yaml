@@ -283,18 +283,21 @@ personalProjects:
 certifications:
   - title: "Microsoft Certified: Azure Developer Associate (AZ-204)"
     issuer: Microsoft
+    icon: icons/microsoft.svg
     year: July 2026
     verifyUrl: https://learn.microsoft.com/en-us/users/nedevski/credentials/11a75ebcfc11602
     verifyLabel: Verify credential
 
   - title: "React - The Complete Guide (incl Hooks, React Router, Redux)"
     issuer: Udemy
+    icon: icons/udemy.png
     year: Jan 2022
     verifyUrl: https://www.udemy.com/certificate/UC-ec6d4cc9-b41b-4786-8de5-ed5165ada524/
     verifyLabel: Verify credential
 
   - title: "Microsoft Certified: Azure Fundamentals (AZ-900)"
     issuer: Microsoft
+    icon: icons/microsoft.svg
     year: Oct 2021
     verifyUrl: https://learn.microsoft.com/en-us/users/nedevski/credentials/470f1af4890ec0d0
     verifyLabel: Verify credential
