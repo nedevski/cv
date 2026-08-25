@@ -4,14 +4,16 @@ import yaml from 'js-yaml'
 import type { Plugin, ResolvedConfig } from 'vite'
 
 const OG_IMAGE = 'social-preview.jpg'
-const DEFAULT_PHOTO = 'avatar.jpg'
+const OG_IMAGE_WIDTH = 1200
+const OG_IMAGE_HEIGHT = 630
+const SOCIAL_PREVIEW_SOURCE = 'data/social-preview.jpg'
 
 interface SocialPreview {
   title: string
   description: string
   url: string
   imageUrl: string
-  photoPath: string | null
+  imagePath: string | null
 }
 
 function asRecord(value: unknown): Record<string, unknown> | null {
@@ -54,20 +56,9 @@ function resolveSiteUrl(data: Record<string, unknown>): string {
   return ''
 }
 
-function resolvePhotoPath(root: string, photoRef: string): string | null {
-  if (photoRef.startsWith('http://') || photoRef.startsWith('https://')) {
-    return null
-  }
-
-  const filename = photoRef.replace(/^\.\//, '').replace(/^data\//, '')
-  const photoPath = resolve(root, 'data', filename)
-
-  if (existsSync(photoPath)) {
-    return photoPath
-  }
-
-  const fallbackPath = resolve(root, 'data', DEFAULT_PHOTO)
-  return existsSync(fallbackPath) ? fallbackPath : null
+function resolveSocialPreviewPath(root: string): string | null {
+  const sourcePath = resolve(root, SOCIAL_PREVIEW_SOURCE)
+  return existsSync(sourcePath) ? sourcePath : null
 }
 
 function loadSocialPreview(root: string, basePath: string): SocialPreview {
@@ -87,27 +78,18 @@ function loadSocialPreview(root: string, basePath: string): SocialPreview {
   const description = firstSummaryLine(summary) || trimString(profile?.title) || title
   const siteUrl = resolveSiteUrl(data)
 
-  const photoRef = trimString(profile?.photo) || DEFAULT_PHOTO
-  const isRemotePhoto =
-    photoRef.startsWith('http://') || photoRef.startsWith('https://')
-
   const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`
-  const imagePath = `${normalizedBase}${OG_IMAGE}`.replace(/\/{2,}/g, '/')
+  const publicImagePath = `${normalizedBase}${OG_IMAGE}`.replace(/\/{2,}/g, '/')
+  const imagePath = resolveSocialPreviewPath(root)
 
-  const imageUrl = isRemotePhoto
-    ? photoRef
-    : siteUrl
-      ? joinUrl(siteUrl, imagePath)
-      : imagePath
-
-  const photoPath = isRemotePhoto ? null : resolvePhotoPath(root, photoRef)
+  const imageUrl = siteUrl ? joinUrl(siteUrl, publicImagePath) : publicImagePath
 
   return {
     title,
     description,
-    url: siteUrl || imagePath,
+    url: siteUrl || publicImagePath,
     imageUrl,
-    photoPath,
+    imagePath,
   }
 }
 
@@ -119,7 +101,10 @@ function injectSocialMeta(html: string, preview: SocialPreview): string {
     `<meta property="og:description" content="${escapeAttr(preview.description)}" />`,
     `<meta property="og:url" content="${escapeAttr(preview.url)}" />`,
     `<meta property="og:image" content="${escapeAttr(preview.imageUrl)}" />`,
-    `<meta name="twitter:card" content="summary" />`,
+    `<meta property="og:image:width" content="${OG_IMAGE_WIDTH}" />`,
+    `<meta property="og:image:height" content="${OG_IMAGE_HEIGHT}" />`,
+    `<meta property="og:image:alt" content="${escapeAttr(preview.title)}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${escapeAttr(preview.title)}" />`,
     `<meta name="twitter:description" content="${escapeAttr(preview.description)}" />`,
     `<meta name="twitter:image" content="${escapeAttr(preview.imageUrl)}" />`,
@@ -154,12 +139,12 @@ export function socialPreviewPlugin(): Plugin {
     closeBundle() {
       const preview = loadSocialPreview(config.root, config.base)
 
-      if (!preview.photoPath) {
+      if (!preview.imagePath) {
         return
       }
 
       const outputPath = join(config.root, config.build.outDir, OG_IMAGE)
-      copyFileSync(preview.photoPath, outputPath)
+      copyFileSync(preview.imagePath, outputPath)
     },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
@@ -174,13 +159,13 @@ export function socialPreviewPlugin(): Plugin {
 
         const preview = loadSocialPreview(server.config.root, server.config.base)
 
-        if (!preview.photoPath) {
+        if (!preview.imagePath) {
           next()
           return
         }
 
         res.setHeader('Content-Type', 'image/jpeg')
-        res.end(readFileSync(preview.photoPath))
+        res.end(readFileSync(preview.imagePath))
       })
     },
   }
